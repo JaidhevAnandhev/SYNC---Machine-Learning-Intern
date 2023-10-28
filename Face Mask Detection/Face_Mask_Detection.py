@@ -29,7 +29,7 @@ def detect_mask(frame):
         mask, without_mask = predictions[0]
 
         # Determine the label and color based on the prediction
-        label = "Mask" if mask < without_mask else "Not Mask"
+        label = "Mask" if mask > without_mask else "Not Mask"
         color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 
         cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
